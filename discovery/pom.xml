@@ -22,4 +22,24 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 	</dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <configuration>
+          <to>
+            <image>course-platform-module-discovery</image>
+          </to>
+          <container>
+            <mainClass>com.syxbruno.discovery.DiscoveryApplication</mainClass>
+            <ports>
+              <port>8761</port>
+            </ports>
+          </container>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mysql:9.4.0
+    container_name: course-platform-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: course_platform_db
+      MYSQL_ROOT_PASSWORD: ${ENV_ROOT_PASSWORD}
+      MYSQL_USER: ${ENV_MYSQL_USER}
+      MYSQL_PASSWORD: ${ENV_PASSWORD}
+    volumes:
+      - course-platform-db:/var/lib/mysql
+
+volumes:
+  course-platform-db:
